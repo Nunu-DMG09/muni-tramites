@@ -130,3 +130,4 @@ _modules/*
 /writable/*
 !/writable/index.html
 .env
+.gitignore
