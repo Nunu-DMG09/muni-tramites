@@ -7,6 +7,7 @@ use App\Models\UsuarioModel;
 class Auth extends BaseController
 {
     public function register(){
+        helper(['form']); 
         return view('auth/register');
     }
 
