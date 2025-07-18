@@ -9,15 +9,22 @@ class Tramite extends BaseController
     public function index()
     {
         $tramiteModel = new TramiteModel();
-        $usuario = session()->get('usuario');
+        $usuario      = session()->get('usuario');
 
         if ($usuario['rol'] === 'ciudadano') {
-            $tramites = $tramiteModel->where('usuario_id', $usuario['id'])->findAll();
+            // Solo trámites del usuario logueado
+            $tramites = $tramiteModel
+                ->where('usuario_id', $usuario['id'])
+                ->findAll();
         } else {
+            // Todos los trámites para funcionarios
             $tramites = $tramiteModel->findAll();
         }
 
-        return view('tramite/index', ['tramites' => $tramites, 'usuario' => $usuario]);
+        return view('tramite/index', [
+            'tramites' => $tramites,
+            'usuario'  => $usuario
+        ]);
     }
 
     public function create()

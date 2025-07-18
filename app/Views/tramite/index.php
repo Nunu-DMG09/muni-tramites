@@ -21,7 +21,7 @@
     <?php endif; ?>
     <h2 class="mb-4 text-primary">Listado de Trámites</h2>
     <?php if ($usuario['rol'] == 'ciudadano'): ?>
-        <a href="/tramites/create" class="btn btn-primary mb-3">➕ Nuevo Trámite</a>
+        <a href="<?=base_url("/tramites/create")?>" class="btn btn-primary mb-3">➕ Nuevo Trámite</a>
     <?php endif; ?>
     <table class="table table-bordered table-striped">
         <thead class="table-primary">

@@ -23,7 +23,7 @@
                 <?= $validation->listErrors() ?>
             </div>
         <?php endif; ?>
-        <form action="/saveRegister" method="post" autocomplete="off">
+        <form action="<?= base_url('saveRegister') ?>" method="post" autocomplete="off">
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre completo</label>
                 <input type="text" name="nombre" class="form-control" value="<?= set_value('nombre') ?>" required placeholder="Juan Pérez">
@@ -41,7 +41,7 @@
                 <input type="password" name="confirmar" class="form-control" required placeholder="********">
             </div>
             <button class="btn btn-primary w-100">Registrarse</button>
-            <p class="text-center mt-3">¿Ya tienes cuenta? <a href="/login" class="text-decoration-none text-primary">Inicia sesión</a></p>
+            <p class="text-center mt-3">¿Ya tienes cuenta? <a href="<?= base_url('/login') ?>" class="text-decoration-none text-primary">Inicia sesión</a></p>
         </form>
     </div>
 </body>

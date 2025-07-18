@@ -40,16 +40,21 @@ class Auth extends BaseController
         return view('auth/login');
     }
 
-    public function doLogin(){
-        $usuarioModel = new UsuarioModel();
+    public function doLogin()
+    {
+        helper(['form']);
+        $usuarioModel = new \App\Models\UsuarioModel();
+
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
-        $user = $usuarioModel->where('email', $email)->first();
+        $user = $usuarioModel
+            ->where('email', $email)
+            ->first();
 
         if ($user && password_verify($password, $user['password'])) {
-           session()->set('usuario', $user);
-           return redirect()->to('/tramites');
+            session()->set('usuario', $user);
+            return redirect()->to('/tramites');
         } else {
             return redirect()->to('/login')->with('error', 'Credenciales incorrectas');
         }

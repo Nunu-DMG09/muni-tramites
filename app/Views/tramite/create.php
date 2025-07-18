@@ -13,7 +13,7 @@
             <?= $validation->listErrors() ?>
         </div>
     <?php endif; ?>
-    <form action="/tramites/store" method="post" autocomplete="off">
+    <form action="<?=base_url('/tramites/store')?>" method="post" autocomplete="off">
         <div class="mb-3">
             <label for="titulo" class="form-label">Título</label>
             <input type="text" name="titulo" class="form-control" placeholder="Licencia de funcionamiento" required>
@@ -23,7 +23,7 @@
             <textarea name="descripcion" class="form-control" rows="3" placeholder="Detalle del trámite" required></textarea>
         </div>
         <button class="btn btn-primary">Registrar</button>
-        <a href="/tramites" class="btn btn-secondary">Cancelar</a>
+        <a href="<?=base_url('/tramites')?>" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
 </body>

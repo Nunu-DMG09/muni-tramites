@@ -21,7 +21,7 @@
         <?php if (session()->getFlashdata('error')): ?>
             <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
         <?php endif; ?>
-        <form action="/doLogin" method="post" autocomplete="off">
+        <form action="<?= base_url('/doLogin') ?>" method="post" autocomplete="off">
             <div class="mb-3">
                 <label for="email" class="form-label">Correo electrónico</label>
                 <input type="email" name="email" class="form-control" required placeholder="usuario@correo.com">
@@ -31,7 +31,7 @@
                 <input type="password" name="password" class="form-control" required placeholder="********">
             </div>
             <button class="btn btn-primary w-100">Entrar</button>
-            <p class="text-center mt-3">¿No tienes cuenta? <a href="/register" class="text-decoration-none text-primary">Regístrate</a></p>
+            <p class="text-center mt-3">¿No tienes cuenta? <a href="<?= base_url('register') ?>" class="text-decoration-none text-primary">Regístrate</a></p>
         </form>
     </div>
 </body>
