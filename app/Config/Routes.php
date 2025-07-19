@@ -17,3 +17,4 @@ $routes->get('/tramites/create', 'Tramite::create');
 $routes->post('/tramites/store', 'Tramite::store');
 $routes->get('/tramites/edit/(:num)', 'Tramite::edit/$1');
 $routes->post('/tramites/update/(:num)', 'Tramite::update/$1');
+$routes->get('/tramites/delete/(:num)', 'Tramite::delete/$1');

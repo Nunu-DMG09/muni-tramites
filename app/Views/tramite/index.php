@@ -54,7 +54,8 @@
                     <td><?= $tramite['fecha_solicitud'] ?></td>
                     <?php if ($usuario['rol'] == 'funcionario'): ?>
                         <td>
-                            <a href="/tramites/edit/<?= $tramite['id'] ?>" class="btn btn-sm btn-secondary">Editar</a>
+                            <a href="<?= base_url('tramites/edit/' . $tramite['id']) ?>" class="btn btn-sm btn-secondary">Editar</a>
+                            <a href="<?= base_url('tramites/delete/' . $tramite['id']) ?>" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de eliminar este trámite?');">Eliminar</a>
                         </td>
                     <?php endif; ?>
                 </tr>

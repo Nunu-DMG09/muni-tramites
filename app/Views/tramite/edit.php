@@ -8,7 +8,7 @@
 <body>
 <div class="container mt-5">
     <h2 class="text-primary mb-4">Editar Estado del Trámite</h2>
-    <form action="/tramites/update/<?= $tramite['id'] ?>" method="post" autocomplete="off">
+    <form action="<?= base_url('tramites/update/' . $tramite['id']) ?>" method="post" autocomplete="off">
         <div class="mb-3">
             <label for="estado" class="form-label">Estado</label>
             <select name="estado" class="form-select" required>
@@ -18,7 +18,7 @@
             </select>
         </div>
         <button class="btn btn-primary">Actualizar</button>
-        <a href="/tramites" class="btn btn-secondary">Cancelar</a>
+        <a href="<?=base_url("/tramites")?>" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
 </body>

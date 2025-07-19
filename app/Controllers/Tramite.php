@@ -63,4 +63,36 @@ class Tramite extends BaseController
         ]);
         return redirect()->to('/tramites')->with('success', 'Estado actualizado');
     }
+
+    public function delete($id)
+    {
+        $usuario = session()->get('usuario');
+
+        // Solo funcionarios pueden eliminar
+        if ($usuario['rol'] !== 'funcionario') {
+            return redirect()->to('/tramites')->with('error', 'No tienes permisos para eliminar trámites.');
+        }
+
+        $tramiteModel = new \App\Models\TramiteModel();
+        $tramite = $tramiteModel->find($id);
+
+        if ($tramite) {
+            $tramiteModel->delete($id);
+            return redirect()->to('/tramites')->with('success', 'Trámite eliminado correctamente.');
+        } else {
+            return redirect()->to('/tramites')->with('error', 'El trámite no existe.');
+        }
+    }
+
+    public function edit($id)
+    {
+        $tramiteModel = new \App\Models\TramiteModel();
+        $tramite = $tramiteModel->find($id);
+
+        if (!$tramite) {
+            return redirect()->to('/tramites')->with('error', 'Trámite no encontrado.');
+        }
+
+        return view('tramite/edit', ['tramite' => $tramite]);
+    }
 }
