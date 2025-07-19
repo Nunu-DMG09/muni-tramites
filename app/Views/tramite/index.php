@@ -11,7 +11,7 @@
         <a class="navbar-brand" href="#">Municipalidad</a>
         <div class="collapse navbar-collapse justify-content-end">
             <span class="navbar-text me-3">Hola, <?= $usuario['nombre'] ?> (<?= ucfirst($usuario['rol']) ?>)</span>
-            <a href="/logout" class="btn btn-light btn-sm">Cerrar Sesión</a>
+            <a href="<?=base_url("/logout")?>" class="btn btn-light btn-sm">Cerrar Sesión</a>
         </div>
     </div>
 </nav>
